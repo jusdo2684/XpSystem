@@ -2,4 +2,4 @@
 <h3 align="center">Create a Xp System for your SCP SL Server</h3>
 
 
-<h4>Releases available on : <a href=""</h4>
+<h4>Releases available on : <a href="https://github.com/jusdo2684/XpSystem/releases">Releases</a></h4>
