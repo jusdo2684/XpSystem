@@ -26,7 +26,6 @@ namespace XpSystem
 
             Exiled.Events.Handlers.Player.Dying += OnDying;
             Exiled.Events.Handlers.Player.Escaping += OnEscaping;
-            Exiled.Events.Handlers.Player.Joined += OnJoined;
             Exiled.Events.Handlers.Scp049.FinishingRecall += OnRessurectZombie;
             Exiled.Events.Handlers.Scp049.ConsumingCorpse += OnConsumingCorpse;
             Exiled.Events.Handlers.Scp330.EatingScp330 += OnEatingScp330;
@@ -83,7 +82,6 @@ namespace XpSystem
         {
             Exiled.Events.Handlers.Player.Dying -= OnDying;
             Exiled.Events.Handlers.Player.Escaping -= OnEscaping;
-            Exiled.Events.Handlers.Player.Joined -= OnJoined;
             Exiled.Events.Handlers.Scp049.FinishingRecall -= OnRessurectZombie;
             Exiled.Events.Handlers.Scp049.ConsumingCorpse -= OnConsumingCorpse;
             Exiled.Events.Handlers.Scp330.EatingScp330 -= OnEatingScp330;
@@ -94,13 +92,13 @@ namespace XpSystem
 
         public override string ToString() => $"{Player.Nickname} - {Level} - {Exp}";
 
-        void OnJoined(JoinedEventArgs ev) => ev.Player.ShowHint($"Exp Synchronization :  \nLevel : <color=#0070A1>{Level}</color> | Exp : <color=#0070A1>{Exp}</color> | Next Level in : <color=#0070A1>{Main.Instance.Config.ExpToLvlUp - Exp}</color>");
 
         void OnDying(DyingEventArgs ev)
         {
             if (ev.Attacker == ev.Player || ev.Attacker is null || ev.Player is null) return;
             AddExp(ev.Player.IsScp ? Main.Instance.Config.KillScpExp : Main.Instance.Config.KillExp);
         }
+
         void OnEscaping(EscapingEventArgs _) => AddExp(Main.Instance.Config.EscapeExp);
 
         void OnEatingScp330(EatingScp330EventArgs _) => AddExp(Main.Instance.Config.EatingCandyExp);

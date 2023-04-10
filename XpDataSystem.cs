@@ -35,7 +35,7 @@ namespace XpSystem
             using (StreamWriter writer = new(dbFilePath))
             {
                 var serializer = new SerializerBuilder().Build();
-                writer.Write(serializer.Serialize(DataXpItems.ToArray()));
+                writer.Write(serializer.Serialize(itemsToSave.ToArray()));
             }
 
             Log.Info("Xp Database Saved !");
