@@ -10,12 +10,12 @@ namespace XpSystem
         public static List<PlayerXp> XpsRegistered = new();
         public static List<DataXpItem> DataXpItems = new();
 
-        static readonly string dbFilePath = dbDirPath + "/XpDatabase.json";
+        static readonly string dbFilePath = Main.Instance.Config.DatabaseDirectoryPath + "/XpDatabase.json";
 
         public static void SaveDatabase()
         {
-            if (!Directory.Exists(dbDirPath))
-                Directory.CreateDirectory(dbDirPath);
+            if (!Directory.Exists(Main.Instance.Config.DatabaseDirectoryPath))
+                Directory.CreateDirectory(Main.Instance.Config.DatabaseDirectoryPath);
 
             if (XpsRegistered is null)
             {
@@ -46,10 +46,10 @@ namespace XpSystem
             XpsRegistered = new();
             DataXpItems = new();
 
-            if (!Directory.Exists(Main.Instance.ConfigPath.DatabaseDirectoryPath))
+            if (!Directory.Exists(Main.Instance.Config.DatabaseDirectoryPath))
             {
                 Log.Info("Directory not found ! Creating...");
-                Directory.CreateDirectory(Main.Instance.ConfigPath.DatabaseDirectoryPath);
+                Directory.CreateDirectory(Main.Instance.Config.DatabaseDirectoryPath);
             }
 
             if (!File.Exists(dbFilePath))

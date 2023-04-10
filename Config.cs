@@ -14,7 +14,7 @@ namespace XpSystem
 
         [Description("Exp amount required to level-up.")]
         public int ExpToLvlUp { get; set; } = 5000;
-
+        
         [Description("Exp earned when a player kills another player.")]
         public int KillExp { get; set; } = 30;
 
