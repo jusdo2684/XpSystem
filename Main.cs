@@ -10,7 +10,7 @@ namespace XpSystem
 
         public override string Author => "JusDo2684";
 
-        public override Version Version => new(1, 0, 0);
+        public override Version Version => new(0, 1);
 
         readonly PlayerHandler plyHandler = new();
         readonly ScpHandler scpHandler = new();

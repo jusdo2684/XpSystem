@@ -41,14 +41,8 @@ namespace XpSystem
 
         public static bool TryGetPlayerXp(Player player, out PlayerXp playerXp)
         {
-            if (XpDataSystem.XpsRegistered.Exists(x => x.Player == player))
-            {
-                playerXp = XpDataSystem.XpsRegistered.Where(x => x.Player == player).First();
-                return true;
-            }
-
-            playerXp = null;
-            return false;
+            playerXp = XpDataSystem.XpsRegistered.Find(x => x.Player == player);
+            return playerXp is not null;
         }
 
         public static void GetAndAddExp(Player player, int amount) => XpDataSystem.XpsRegistered.Find(x => x.Player == player).AddExp(amount);
