@@ -88,6 +88,9 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\Downloads\Dev\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\..\Downloads\Dev\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
     <Reference Include="YamlDotNet">
       <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\YamlDotNet.dll</HintPath>
     </Reference>
