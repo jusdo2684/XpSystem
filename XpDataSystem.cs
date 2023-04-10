@@ -92,9 +92,6 @@ namespace XpSystem
 
         public DataXpItem() { }
 
-        public override string ToString()
-        {
-            return $"{UserId} - {Lvl} - {Exp}";
-        }
+        public override string ToString() => $"{UserId} - {Lvl} - {Exp}";
     }
 }

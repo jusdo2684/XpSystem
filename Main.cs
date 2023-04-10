@@ -28,12 +28,8 @@ namespace XpSystem
             Exiled.Events.Handlers.Server.ReloadedPlugins += XpDataSystem.SaveDatabase;
             Exiled.Events.Handlers.Server.ReloadedPlugins += XpDataSystem.LoadDatabase;
             Exiled.Events.Handlers.Server.RestartingRound += XpDataSystem.SaveDatabase;
+
             Exiled.Events.Handlers.Player.Verified += plyHandler.OnVerified;
-            Exiled.Events.Handlers.Player.Dying += plyHandler.OnDying;
-            Exiled.Events.Handlers.Player.Escaping += plyHandler.OnEscaping;
-            Exiled.Events.Handlers.Scp330.EatingScp330 += scpHandler.OnEatingScp330;
-            Exiled.Events.Handlers.Scp049.FinishingRecall += scpHandler.OnRessurectZombie;
-            Exiled.Events.Handlers.Scp049.ConsumingCorpse += scpHandler.OnConsumingCorpse;
         }
 
         public override void OnDisabled()
@@ -47,12 +43,8 @@ namespace XpSystem
             Exiled.Events.Handlers.Server.ReloadedPlugins -= XpDataSystem.SaveDatabase;
             Exiled.Events.Handlers.Server.ReloadedPlugins -= XpDataSystem.LoadDatabase;
             Exiled.Events.Handlers.Server.RestartingRound -= XpDataSystem.SaveDatabase;
+
             Exiled.Events.Handlers.Player.Verified -= plyHandler.OnVerified;
-            Exiled.Events.Handlers.Player.Dying -= plyHandler.OnDying;
-            Exiled.Events.Handlers.Player.Escaping -= plyHandler.OnEscaping;
-            Exiled.Events.Handlers.Scp330.EatingScp330 -= scpHandler.OnEatingScp330;
-            Exiled.Events.Handlers.Scp049.FinishingRecall -= scpHandler.OnRessurectZombie;
-            Exiled.Events.Handlers.Scp049.ConsumingCorpse -= scpHandler.OnConsumingCorpse;
 
             Instance = null;
         }

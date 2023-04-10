@@ -96,13 +96,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\GetXpLists.cs" />
-    <Compile Include="Commands\ResetXp.cs" />
-    <Compile Include="Commands\SetXp.cs" />
-    <Compile Include="Commands\XpParent.cs" />
+    <Compile Include="Commands\Client\LevelShow.cs" />
+    <Compile Include="Commands\RemoteAdmin\GetXpLists.cs" />
+    <Compile Include="Commands\RemoteAdmin\ResetXp.cs" />
+    <Compile Include="Commands\RemoteAdmin\SetXp.cs" />
+    <Compile Include="Commands\RemoteAdmin\XpParent.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="EventHandlers\PlayerHandler.cs" />
-    <Compile Include="EventHandlers\ScpHandler.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PlayerXp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

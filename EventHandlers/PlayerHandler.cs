@@ -53,12 +53,5 @@ namespace XpSystem.EventHandlers
 
             playerXp.SetXpNickname();
         }
-
-        public void OnDying(DyingEventArgs ev)
-        {
-            if (ev.Attacker == ev.Player || ev.Attacker == null || ev.Player == null) return;
-            PlayerXp.GetAndAddExp(ev.Attacker, ev.Player.IsScp ? Main.Instance.Config.KillScpExp : Main.Instance.Config.KillExp);
-        }
-        public void OnEscaping(EscapingEventArgs ev) => PlayerXp.GetAndAddExp(ev.Player, Main.Instance.Config.EscapeExp);
     }
 }
