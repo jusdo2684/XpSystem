@@ -11,7 +11,7 @@ namespace XpSystem.Commands
 
         public string[] Aliases => new string[0];
 
-        public string Description => "get the Xp Lists";
+        public string Description => "Get the Xp Lists";
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
@@ -28,7 +28,7 @@ namespace XpSystem.Commands
                 dataXpList += " - " + dataXp + "\n";
             }
 
-            response = "Voici les listes d'xps : \n" + xpRegisteredList + "\n" + dataXpList;
+            response = "Xps Lists : \n" + xpRegisteredList + "\n" + dataXpList;
             return true;
         }
     }

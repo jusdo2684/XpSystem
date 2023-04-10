@@ -21,26 +21,26 @@ namespace XpSystem.Commands
         {
             if (!int.TryParse(arguments.ElementAt(0), out int id))
             {
-                response = "L'id n'est pas valide.";
+                response = "Player Id invalid.";
                 return false;
             }
 
             if (!Player.TryGet(id, out Player player))
             {
-                response = "Le joueur est introvable.";
+                response = "Player not found.";
                 return false;
             }
 
             if (!PlayerXp.TryGetPlayerXp(player, out PlayerXp playerXp))
             {
-                response = "Erreur : le PlayerXp n'a pas pu être récupéré.";
+                response = "Error : Player cannot be got.";
                 return false;
             }
 
             playerXp.Level = 0;
             playerXp.Exp = 0;
 
-            response = "Les stats de " + player.Nickname + " ont été mis à zéro.";
+            response = player.Nickname + "'s stats have been reset.";
             return true;
         }
     }
