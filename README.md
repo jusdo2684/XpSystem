@@ -8,4 +8,4 @@
 
 
 <h4>Releases available on : <a href="https://github.com/jusdo2684/XpSystem/releases">Releases</a></h4>
-<h5 align="right">Requires EXILED 6.1.0-beta-2</h5>
+<h5 align="right">Requires EXILED 6.1.0 beta-2</h5>
