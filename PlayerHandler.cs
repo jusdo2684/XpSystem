@@ -3,7 +3,7 @@ using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
 using System.Linq;
 
-namespace XpSystem.EventHandlers
+namespace XpSystem
 {
     public class PlayerHandler
     {

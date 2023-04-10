@@ -1,6 +1,5 @@
 ﻿using Exiled.API.Features;
 using System;
-using XpSystem.EventHandlers;
 
 namespace XpSystem
 {
@@ -13,7 +12,6 @@ namespace XpSystem
         public override Version Version => new(0, 1);
 
         readonly PlayerHandler plyHandler = new();
-        readonly ScpHandler scpHandler = new();
 
         public static Main Instance { get; private set; }
 

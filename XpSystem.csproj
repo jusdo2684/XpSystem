@@ -102,7 +102,7 @@
     <Compile Include="Commands\RemoteAdmin\SetXp.cs" />
     <Compile Include="Commands\RemoteAdmin\XpParent.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="EventHandlers\PlayerHandler.cs" />
+    <Compile Include="PlayerHandler.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PlayerXp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,5 +111,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
