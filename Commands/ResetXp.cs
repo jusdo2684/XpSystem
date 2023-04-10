@@ -13,7 +13,7 @@ namespace XpSystem.Commands
 
         public string[] Aliases => new string[0];
 
-        public string Description => "Réinitialise le level et l'exp d'un joueur";
+        public string Description => "Reset the level and exp of a player";
 
         public string[] Usage => new[] { "Id" };
 
