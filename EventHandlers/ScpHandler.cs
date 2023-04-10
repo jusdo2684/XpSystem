@@ -1,6 +1,5 @@
 ﻿using Exiled.Events.EventArgs.Scp049;
 using Exiled.Events.EventArgs.Scp330;
-using XpSystem;
 
 namespace XpSystem.EventHandlers
 {

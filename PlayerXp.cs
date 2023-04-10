@@ -71,9 +71,6 @@ namespace XpSystem
             XpDataSystem.XpsRegistered.Remove(this);
         }
 
-        public override string ToString()
-        {
-            return $"{Player.Nickname} - {Level} - {Exp}";
-        }
+        public override string ToString() => $"{Player.Nickname} - {Level} - {Exp}";
     }
 }
