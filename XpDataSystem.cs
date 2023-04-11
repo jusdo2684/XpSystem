@@ -10,7 +10,7 @@ namespace XpSystem
         public static List<PlayerXp> XpsRegistered = new();
         public static List<DataXpItem> DataXpItems = new();
 
-        static readonly string dbFilePath = Main.Instance.Config.DatabaseDirectoryPath + "/XpDatabase.json";
+        static readonly string dbFilePath = Main.Instance.Config.DatabaseDirectoryPath + "/" + Main.Instance.Config.DatabaseFileName + ".json";
 
         public static void SaveDatabase()
         {
@@ -66,7 +66,7 @@ namespace XpSystem
 
             if (itemsLoaded is null)
             {
-                Log.Error("Error : Database null !");
+                Log.Error("Error : Null Database !");
                 return;
             }
 
