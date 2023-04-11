@@ -36,5 +36,8 @@ namespace XpSystem
 
         [Description("The folder path for the database. Warning : Don't put the database file name (automatic)")]
         public string DatabaseDirectoryPath { get; set; } = "";
+
+        [Description("The name of the json file of the database")]
+        public string DatabaseFileName { get; set; } = "";
     }
 }
