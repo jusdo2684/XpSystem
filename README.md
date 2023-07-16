@@ -6,7 +6,7 @@
 <h4 align="center">- Database for Saving</h5>
 <h4 align="center">- Configs for personalization</h5>
 
-<h3>Warning : The database path configs are empty. Ensure to fill them correctly in order to avoid any error.</h3>
+<h5>Warning : The database path configs are empty. Ensure to fill them correctly in order to avoid any error.</h5>
 
 <h4>Releases available on : <a href="https://github.com/jusdo2684/XpSystem/releases">Releases</a></h4>
 <h5 align="right">Requires EXILED 6.1.0 beta-3</h5>
