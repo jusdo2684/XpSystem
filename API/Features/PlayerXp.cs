@@ -63,17 +63,17 @@ namespace XpSystem.API.Features
 
         internal void SetXpNickname() => Player.CustomName = $"Lvl {Level} - {Player.Nickname}";
 
-        internal static PlayerXp Get(Player player) => XpDataSystem.XpsRegistered.Find(x => x.Player == player);
+        public static PlayerXp Get(Player player) => XpDataSystem.XpsRegistered.Find(x => x.Player == player);
 
-        internal static bool TryGet(Player player, out PlayerXp playerXp)
+        public static bool TryGet(Player player, out PlayerXp playerXp)
         {
             playerXp = XpDataSystem.XpsRegistered.Find(x => x.Player == player);
             return playerXp is not null;
         }
 
-        internal static void GetAndAddExp(Player player, int amount) => XpDataSystem.XpsRegistered.Find(x => x.Player == player).AddExp(amount);
+        public static void GetAndAddExp(Player player, int amount) => XpDataSystem.XpsRegistered.Find(x => x.Player == player).AddExp(amount);
 
-        internal void AddExp(float amount)
+        public void AddExp(float amount)
         {
             AddingExpEventArgs addingEv = new(Player, amount);
             Events.Handlers.Player.OnAddingExp(addingEv);
