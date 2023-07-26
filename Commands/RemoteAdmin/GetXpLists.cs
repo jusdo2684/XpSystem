@@ -1,11 +1,13 @@
 ﻿using CommandSystem;
 using System;
+using XpSystem.API.Features;
+using XpSystem.Loader;
 
 namespace XpSystem.Commands.RemoteAdmin
 {
     [CommandHandler(typeof(GameConsoleCommandHandler))]
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
-    public class GetXpLists : ICommand
+    internal class GetXpLists : ICommand
     {
         public string Command => "getxplist";
 

@@ -5,7 +5,7 @@ namespace XpSystem.Commands.RemoteAdmin
 {
     [CommandHandler(typeof(GameConsoleCommandHandler))]
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
-    public class XpParent : ParentCommand
+    internal class XpParent : ParentCommand
     {
         public XpParent() => LoadGeneratedCommands();
 

@@ -101,21 +101,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Extensions\PlayerExtensions.cs" />
     <Compile Include="Commands\Client\LevelShow.cs" />
     <Compile Include="Commands\RemoteAdmin\GetXpLists.cs" />
     <Compile Include="Commands\RemoteAdmin\ResetXp.cs" />
     <Compile Include="Commands\RemoteAdmin\SetXp.cs" />
     <Compile Include="Commands\RemoteAdmin\XpParent.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Events\EventArgs\AddedExpEventArgs.cs" />
+    <Compile Include="Events\EventArgs\AddingExpEventArgs.cs" />
+    <Compile Include="Events\EventArgs\LeveledUpEventArgs.cs" />
+    <Compile Include="Events\EventArgs\LevelingUpEventArgs.cs" />
+    <Compile Include="Events\EventArgs\LoadingDatabaseEventArgs.cs" />
+    <Compile Include="Events\EventArgs\SavingDatabaseEventArgs.cs" />
+    <Compile Include="Events\Handlers\Database.cs" />
+    <Compile Include="Events\Handlers\Player.cs" />
     <Compile Include="PlayerHandler.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="PlayerXp.cs" />
+    <Compile Include="API\Features\PlayerXp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XpDataSystem.cs" />
+    <Compile Include="Loader\XpDataSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

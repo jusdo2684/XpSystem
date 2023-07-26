@@ -1,9 +1,10 @@
 ﻿using Exiled.API.Features;
 using System;
+using XpSystem.Loader;
 
 namespace XpSystem
 {
-    public class Main : Plugin<Config>
+    internal class Main : Plugin<Config>
     {
         public override string Name => "Xp System";
 
@@ -13,7 +14,7 @@ namespace XpSystem
 
         readonly PlayerHandler plyHandler = new();
 
-        public static Main Instance { get; private set; }
+        internal static Main Instance { get; private set; }
 
         public override void OnEnabled()
         {
@@ -21,7 +22,6 @@ namespace XpSystem
 
             Instance = this;
 
-            Exiled.Events.Handlers.Server.WaitingForPlayers += PlayerXp.SetMultiplier;
             Exiled.Events.Handlers.Server.WaitingForPlayers += XpDataSystem.LoadDatabase;
             Exiled.Events.Handlers.Server.ReloadedPlugins += XpDataSystem.SaveDatabase;
             Exiled.Events.Handlers.Server.ReloadedPlugins += XpDataSystem.LoadDatabase;
@@ -36,7 +36,6 @@ namespace XpSystem
 
             XpDataSystem.SaveDatabase();
 
-            Exiled.Events.Handlers.Server.WaitingForPlayers -= PlayerXp.SetMultiplier;
             Exiled.Events.Handlers.Server.WaitingForPlayers -= XpDataSystem.LoadDatabase;
             Exiled.Events.Handlers.Server.ReloadedPlugins -= XpDataSystem.SaveDatabase;
             Exiled.Events.Handlers.Server.ReloadedPlugins -= XpDataSystem.LoadDatabase;

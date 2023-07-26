@@ -2,12 +2,13 @@
 using Exiled.API.Features;
 using System;
 using System.Linq;
+using XpSystem.API.Features;
 
 namespace XpSystem.Commands.RemoteAdmin
 {
     [CommandHandler(typeof(GameConsoleCommandHandler))]
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
-    public class SetXp : ICommand, IUsageProvider
+    internal class SetXp : ICommand, IUsageProvider
     {
         public string Command => "set";
 
@@ -43,7 +44,7 @@ namespace XpSystem.Commands.RemoteAdmin
                 return false;
             }
 
-            if (!PlayerXp.TryGetPlayerXp(player, out PlayerXp playerXp))
+            if (!PlayerXp.TryGet(player, out PlayerXp playerXp))
             {
                 response = "Error : PlayerXp cannot be got.";
                 return false;

@@ -1,25 +1,32 @@
 ﻿using Exiled.API.Features;
 using System.Collections.Generic;
 using System.IO;
+using XpSystem.API.Features;
+using XpSystem.Events.EventArgs;
 using YamlDotNet.Serialization;
 
-namespace XpSystem
+namespace XpSystem.Loader
 {
-    public class XpDataSystem
+    internal static class XpDataSystem
     {
-        public static List<PlayerXp> XpsRegistered = new();
-        public static List<DataXpItem> DataXpItems = new();
+        internal static List<PlayerXp> XpsRegistered = new();
+        internal static List<DataXpItem> DataXpItems = new();
 
         static readonly string dbFilePath = Main.Instance.Config.DatabaseDirectoryPath + "/" + Main.Instance.Config.DatabaseFileName + ".json";
 
-        public static void SaveDatabase()
+        internal static void SaveDatabase()
         {
+            SavingDatabaseEventArgs ev = new();
+            Events.Handlers.Database.OnSavingDatabase(ev);
+
+            if (!ev.IsAllowed) return;
+
             if (!Directory.Exists(Main.Instance.Config.DatabaseDirectoryPath))
                 Directory.CreateDirectory(Main.Instance.Config.DatabaseDirectoryPath);
 
             if (XpsRegistered is null)
             {
-                Log.Error("Error : La base de données est null !");
+                Log.Error("Error : Null Database !");
                 return;
             }
 
@@ -39,10 +46,17 @@ namespace XpSystem
             }
 
             Log.Info("Xp Database Saved !");
+
+            Events.Handlers.Database.OnSavedDatabase();
         }
 
-        public static void LoadDatabase()
+        internal static void LoadDatabase()
         {
+            LoadingDatabaseEventArgs ev = new();
+            Events.Handlers.Database.OnLoadingDatabase(ev);
+
+            if (!ev.IsAllowed) return;
+
             XpsRegistered = new();
             DataXpItems = new();
 
@@ -74,6 +88,8 @@ namespace XpSystem
                 DataXpItems.Add(new(item.UserId, item.Lvl, item.Exp));
 
             Log.Info("Xp Database Loaded for " + DataXpItems.Count + " players !");
+
+            Events.Handlers.Database.OnLoadedDatabase();
         }
     }
 
@@ -81,9 +97,9 @@ namespace XpSystem
     {
         public string UserId;
         public int Lvl;
-        public int Exp;
+        public float Exp;
 
-        public DataXpItem(string adress, int lvl, int exp)
+        public DataXpItem(string adress, int lvl, float exp)
         {
             UserId = adress;
             Lvl = lvl;

@@ -1,11 +1,12 @@
 ﻿using CommandSystem;
 using Exiled.API.Features;
 using System;
+using XpSystem.API.Features;
 
 namespace XpSystem.Commands.Client
 {
     [CommandHandler(typeof(ClientCommandHandler))]
-    public class LevelShow : ICommand
+    internal class LevelShow : ICommand
     {
         public string Command => "level-show";
 
@@ -17,7 +18,7 @@ namespace XpSystem.Commands.Client
         {
             Player player = Player.Get(sender);
 
-            if (!PlayerXp.TryGetPlayerXp(player, out PlayerXp playerXp))
+            if (!PlayerXp.TryGet(player, out PlayerXp playerXp))
             {
                 response = "Error : Your PlayerXp cannot be got.";
                 return false;

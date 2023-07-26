@@ -1,12 +1,14 @@
 ﻿using Exiled.API.Extensions;
 using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
+using XpSystem.API.Features;
+using XpSystem.Loader;
 
 namespace XpSystem
 {
-    public class PlayerHandler
+    internal class PlayerHandler
     {
-        public void OnVerified(VerifiedEventArgs ev)
+        internal void OnVerified(VerifiedEventArgs ev)
         {
             if (ev.Player.DoNotTrack)
             {
@@ -39,7 +41,7 @@ namespace XpSystem
                 return;
             }
 
-            if (!PlayerXp.TryGetPlayerXp(ev.Player, out PlayerXp playerXp))
+            if (!PlayerXp.TryGet(ev.Player, out PlayerXp playerXp))
             {
                 Log.Info("OnJoined Info : Aucune instance de PlayerXp trouvée pour " + ev.Player.Nickname + ". Creation...");
                 PlayerXp plyXp = new(ev.Player);

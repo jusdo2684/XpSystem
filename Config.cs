@@ -1,9 +1,11 @@
 ﻿using Exiled.API.Interfaces;
+using System;
 using System.ComponentModel;
+using System.IO;
 
 namespace XpSystem
 {
-    public class Config : IConfig
+    internal class Config : IConfig
     {
         /// <inheritdoc/>
         public bool IsEnabled { get; set; } = true;
@@ -35,9 +37,9 @@ namespace XpSystem
 
 
         [Description("The folder path for the database. Warning : Don't put the database file name (automatic)")]
-        public string DatabaseDirectoryPath { get; set; } = "";
+        public string DatabaseDirectoryPath { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "/EXILED/Configs/XpSystem");
 
         [Description("The name of the json file of the database")]
-        public string DatabaseFileName { get; set; } = "";
+        public string DatabaseFileName { get; set; } = "Database";
     }
 }
