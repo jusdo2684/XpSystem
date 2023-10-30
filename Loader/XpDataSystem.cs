@@ -14,6 +14,12 @@ namespace XpSystem.Loader
 
         static readonly string dbFilePath = Main.Instance.Config.DatabaseDirectoryPath + "/" + Main.Instance.Config.DatabaseFileName + ".json";
 
+        internal static void ReloadDatabase()
+        {
+            SaveDatabase();
+            LoadDatabase();
+        }
+
         internal static void SaveDatabase()
         {
             SavingDatabaseEventArgs ev = new();

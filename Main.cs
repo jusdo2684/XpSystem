@@ -10,9 +10,9 @@ namespace XpSystem
 
         public override string Author => "JusDo2684";
 
-        public override Version Version => new(0, 1);
+        public override Version Version => new(1, 0, 0);
 
-        readonly PlayerHandler plyHandler = new();
+        PlayerHandler plyHandler;
 
         internal static Main Instance { get; private set; }
 
@@ -20,11 +20,11 @@ namespace XpSystem
         {
             base.OnEnabled();
 
+            plyHandler = new();
             Instance = this;
 
             Exiled.Events.Handlers.Server.WaitingForPlayers += XpDataSystem.LoadDatabase;
-            Exiled.Events.Handlers.Server.ReloadedPlugins += XpDataSystem.SaveDatabase;
-            Exiled.Events.Handlers.Server.ReloadedPlugins += XpDataSystem.LoadDatabase;
+            Exiled.Events.Handlers.Server.ReloadedPlugins += XpDataSystem.ReloadDatabase;
             Exiled.Events.Handlers.Server.RestartingRound += XpDataSystem.SaveDatabase;
 
             Exiled.Events.Handlers.Player.Verified += plyHandler.OnVerified;
@@ -37,13 +37,13 @@ namespace XpSystem
             XpDataSystem.SaveDatabase();
 
             Exiled.Events.Handlers.Server.WaitingForPlayers -= XpDataSystem.LoadDatabase;
-            Exiled.Events.Handlers.Server.ReloadedPlugins -= XpDataSystem.SaveDatabase;
-            Exiled.Events.Handlers.Server.ReloadedPlugins -= XpDataSystem.LoadDatabase;
+            Exiled.Events.Handlers.Server.ReloadedPlugins -= XpDataSystem.ReloadDatabase;
             Exiled.Events.Handlers.Server.RestartingRound -= XpDataSystem.SaveDatabase;
 
             Exiled.Events.Handlers.Player.Verified -= plyHandler.OnVerified;
 
             Instance = null;
+            plyHandler = null;
         }
     }
 }

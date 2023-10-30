@@ -48,7 +48,7 @@ namespace XpSystem
                 plyXp.SetXpNickname();
                 return;
             }
-
+            
             playerXp.SetXpNickname();
         }
     }

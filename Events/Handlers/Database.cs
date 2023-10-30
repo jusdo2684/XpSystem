@@ -1,6 +1,5 @@
-﻿using Exiled.Events.Extensions;
-using XpSystem.Events.EventArgs;
-using static Exiled.Events.Events;
+﻿using XpSystem.Events.EventArgs;
+using Exiled.Events.Features;
 
 namespace XpSystem.Events.Handlers
 {
@@ -10,7 +9,7 @@ namespace XpSystem.Events.Handlers
         /// Called before saving the xp database.
         /// </summary>
         public static event CustomEventHandler<SavingDatabaseEventArgs> SavingDatabase;
-
+        
         /// <summary>
         /// Called after saving the xp database.
         /// </summary>
@@ -27,12 +26,12 @@ namespace XpSystem.Events.Handlers
         public static event CustomEventHandler LoadedDatabase;
 
 
-        internal static void OnSavingDatabase(SavingDatabaseEventArgs ev) => SavingDatabase.InvokeSafely(ev);
+        internal static void OnSavingDatabase(SavingDatabaseEventArgs ev) => SavingDatabase.Invoke(ev);
 
-        internal static void OnSavedDatabase() => SavedDatabase.InvokeSafely();
+        internal static void OnSavedDatabase() => SavedDatabase.Invoke();
 
-        internal static void OnLoadingDatabase(LoadingDatabaseEventArgs ev) => LoadingDatabase.InvokeSafely(ev);
+        internal static void OnLoadingDatabase(LoadingDatabaseEventArgs ev) => LoadingDatabase.Invoke(ev);
 
-        internal static void OnLoadedDatabase() => LoadedDatabase.InvokeSafely();
+        internal static void OnLoadedDatabase() => LoadedDatabase.Invoke();
     }
 }

@@ -8,7 +8,7 @@ namespace XpSystem.Commands.RemoteAdmin
     [CommandHandler(typeof(GameConsoleCommandHandler))]
     [CommandHandler(typeof(RemoteAdminCommandHandler))]
     internal class GetXpLists : ICommand
-    {
+    { 
         public string Command => "getxplist";
 
         public string[] Aliases => new string[0];

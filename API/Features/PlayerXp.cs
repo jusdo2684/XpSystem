@@ -2,6 +2,7 @@
 using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.EventArgs.Scp049;
+using Exiled.Events.EventArgs.Scp0492;
 using Exiled.Events.EventArgs.Scp330;
 using XpSystem.Events.EventArgs;
 using XpSystem.Loader;
@@ -33,12 +34,12 @@ namespace XpSystem.API.Features
         {
             Player = player;
             XpDataSystem.XpsRegistered.Add(this);
-            SetXpNickname();
+            SetXpNickname();    
 
             Exiled.Events.Handlers.Player.Dying += OnDying;
             Exiled.Events.Handlers.Player.Escaping += OnEscaping;
             Exiled.Events.Handlers.Scp049.FinishingRecall += OnRessurectZombie;
-            Exiled.Events.Handlers.Scp049.ConsumingCorpse += OnConsumingCorpse;
+            Exiled.Events.Handlers.Scp0492.ConsumingCorpse += OnConsumingCorpse;
             Exiled.Events.Handlers.Scp330.EatingScp330 += OnEatingScp330;
 
             Log.Info("New Instance of PlayerXp for " + Player.Nickname);
@@ -91,7 +92,7 @@ namespace XpSystem.API.Features
                 LevelingUpEventArgs lvlingEv = new(Player, Level, Level++);
                 Events.Handlers.Player.OnLevelingUp(lvlingEv);
                 if (!lvlingEv.IsAllowed) return;
-
+                
                 Level++;
                 Exp = 0;
                 SetXpNickname();
@@ -112,13 +113,14 @@ namespace XpSystem.API.Features
             Exiled.Events.Handlers.Player.Dying -= OnDying;
             Exiled.Events.Handlers.Player.Escaping -= OnEscaping;
             Exiled.Events.Handlers.Scp049.FinishingRecall -= OnRessurectZombie;
-            Exiled.Events.Handlers.Scp049.ConsumingCorpse -= OnConsumingCorpse;
+            Exiled.Events.Handlers.Scp0492.ConsumingCorpse -= OnConsumingCorpse;
             Exiled.Events.Handlers.Scp330.EatingScp330 -= OnEatingScp330;
 
             Log.Info(Player.Nickname + " is leaving the game. Killing PlayerXp Instance...");
             XpDataSystem.XpsRegistered.Remove(this);
         }
 
+        
         public override string ToString() => $"{Player.Nickname} - {Level} - {Exp}";
 
 
